@@ -82,7 +82,12 @@ elseif flag == 5
         subplot(212);
         plot(XX,abs(y));
         
-        
+elseif flag == 6
+    
+    A = data{3};
+    plot(XX,A);
+    FEA = extractFeatures(A,0,0,0);
+    display(FEA);
         
 end
 
