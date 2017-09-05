@@ -79,8 +79,7 @@ elseif flag == 5
         y = fft(A,1028);
         subplot(221);
         plot(XX,A);
-        subplot(212);
-        plot(XX,abs(y));
+        stem(XX,abs(y));
         
         
         
