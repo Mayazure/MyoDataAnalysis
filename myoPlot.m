@@ -32,8 +32,10 @@ if flag==1
         A = data{i+1};
         %A = zscore(A);
         
-        Amin = min(A); Amax = max(A);
-        A = (A-repmat(Amin,len,1))./repmat(Amax-Amin,len,1);
+        %Amin = min(A); Amax = max(A);
+        %A = (A-repmat(Amin,len,1))./repmat(Amax-Amin,len,1);
+        
+        A = mapminmax(A);
         
         plot(XX,A);
     end
@@ -47,10 +49,22 @@ elseif flag==3
     end
 elseif flag ==4
     A = data{3};
+    A
         %A = zscore(A);
+        subplot(311);
+        plot(XX,A);
         
         Amin = min(A); Amax = max(A);
         A = (A-repmat(Amin,len,1))./repmat(Amax-Amin,len,1);
+        
+        subplot(312);
+        plot(XX,A);
+        
+        Amin = min(A); Amax = max(A); Amean = mean(A);
+        A = (A-repmat(Amean,len,1))./repmat(Amax-Amin,len,1);
+        
+        %[AA,PS] = mapminmax(A);
+        subplot(313);
         plot(XX,A);
         
         if flag2
