@@ -1,29 +1,14 @@
 
 clc;
 
-for i=2:6
-    extractFeaturesFromDir(strcat('H:\Myo\Organized Data\',num2str(i),'\ParsedData\0\'),0);
-    extractFeaturesFromDir(strcat('H:\Myo\Organized Data\',num2str(i),'\ParsedData\1\'),1);
+density = 3;
+%{
+for i=2:4
+    for d=0:2
+        extractFeaturesFromDir(strcat('D:\Myo\Organized Data\class\',num2str(i),'\ParsedData_',num2str(density),'\',num2str(d),'\'),d);
+    end
 end
-
-for i=8:9
-    extractFeaturesFromDir(strcat('H:\Myo\Organized Data\',num2str(i),'\ParsedData\0\'),0);
-    extractFeaturesFromDir(strcat('H:\Myo\Organized Data\',num2str(i),'\ParsedData\1\'),1);
-end
-
-for i=14:15
-    extractFeaturesFromDir(strcat('H:\Myo\Organized Data\',num2str(i),'\ParsedData\0\'),0);
-    extractFeaturesFromDir(strcat('H:\Myo\Organized Data\',num2str(i),'\ParsedData\1\'),1);
-end
-
-for i=17:23
-    extractFeaturesFromDir(strcat('H:\Myo\Organized Data\',num2str(i),'\ParsedData\0\'),0);
-    extractFeaturesFromDir(strcat('H:\Myo\Organized Data\',num2str(i),'\ParsedData\1\'),1);
-end
-
-for i=25:29
-    extractFeaturesFromDir(strcat('H:\Myo\Organized Data\',num2str(i),'\ParsedData\0\'),0);
-    extractFeaturesFromDir(strcat('H:\Myo\Organized Data\',num2str(i),'\ParsedData\1\'),1);
-end
-
+%}
+extractFeaturesFromFile('test\low.csv',0);
+extractFeaturesFromFile('test\high.csv',1);
 display('done.');
