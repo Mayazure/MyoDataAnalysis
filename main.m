@@ -9,6 +9,7 @@ for i=2:4
     end
 end
 %}
-extractFeaturesFromFile('test\low.csv',0);
-extractFeaturesFromFile('test\high.csv',1);
+extractFeaturesFromFile('low.csv',0);
+extractFeaturesFromFile('high.csv',1);
+extractFeaturesFromFile('vhigh.csv',2);
 display('done.');
