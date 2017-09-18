@@ -7,7 +7,7 @@ function[ZC]=getZC(data, length, threshold, flag)
 ZC = 0;
 
 if flag == 0
-    temp = 0;
+    temp = 1;
     for i=1:length
         if data(i) > threshold || data(i) < -threshold
             if data(i)*temp<0

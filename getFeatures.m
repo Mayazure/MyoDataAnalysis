@@ -14,7 +14,7 @@ function[features] = getFeatures(data,tZC,tSSC,tWA)
     features(6) = getVariance(data,len);
     features(7) = getRMS(data,len);
     features(8) = getWL(data,len);
-    features(9) = getZC(data,len,0,tZC);
+    features(9) = getZC(data,len,tZC,0);
     features(10) = getSSC(data,len,tSSC);
     %features(11) = getWA(data,len,tWA);
 end
