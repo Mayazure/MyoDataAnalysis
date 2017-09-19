@@ -50,24 +50,24 @@ elseif flag==3
 elseif flag ==4
     A = data{3};
     
-        %A = zscore(A);
-        subplot(311);
-        plot(XX,A);
-        
-        Amin = min(A); Amax = max(A);
-        A = (A-repmat(Amin,len,1))./repmat(Amax-Amin,len,1);
-        
-        subplot(312);
-        plot(XX,A);
-        
-        Amin = min(A); Amax = max(A); Amean = mean(A);
-        A = (A-repmat(Amean,len,1))./repmat(Amax-Amin,len,1);
-        
-        %[AA,PS] = mapminmax(A);
-        subplot(313);
-        plot(XX,A);
-        
-        if flag2
+    %A = zscore(A);
+    subplot(311);
+    plot(XX,A);
+    
+    Amin = min(A); Amax = max(A);
+    A = (A-repmat(Amin,len,1))./repmat(Amax-Amin,len,1);
+    
+    subplot(312);
+    plot(XX,A);
+    
+    Amin = min(A); Amax = max(A); Amean = mean(A);
+    A = (A-repmat(Amean,len,1))./repmat(Amax-Amin,len,1);
+    
+    %[AA,PS] = mapminmax(A);
+    subplot(313);
+    plot(XX,A);
+    
+    if flag2
         %line([5834036,5834036],[0.3,0.7],'color',[1 0 0]);
         %line([5842007,5842007],[0.3,0.7],'color',[1 0 0]);
         %line([5834036,5842007],[0.3,0.3],'color',[1 0 0]);
@@ -82,29 +82,41 @@ elseif flag ==4
         line([5941939,5941939],[0.15,0.85],'color',[1 0 0]);
         line([5941334,5941939],[0.15,0.15],'color',[1 0 0]);
         line([5941334,5941939],[0.85,0.85],'color',[1 0 0]);
-        end
+    end
 elseif flag == 5
-    A = data{3};
+    
+    for i=3:10
+        
+        A = data{i};
         %A = zscore(A);
         
-        Amin = min(A); Amax = max(A);
-        A = (A-repmat(Amin,len,1))./repmat(Amax-Amin,len,1);
-        %plot(XX,A);
-        y = fft(A,1028);
-        y = abs(y);
-        display(y);
-        subplot(211);
-        plot(XX,A);
-        subplot(212);
-        plot(y);
+        %Amin = min(A); Amax = max(A);
+        %A = (A-repmat(Amin,len,1))./repmat(Amax-Amin,len,1);
         
+        AM = A-mean(A)*zeros(length(A),1);
+        
+        subplot(8,2,2*(i-2)-1);
+        plot(XX,AM);
+        %plot(XX,A);
+        y = fft(AM,length(AM));
+        y = abs(y);
+        
+        for j=1:20
+            y(j)=0;
+        end
+        %display(y);
+        
+        subplot(8,2,2*(i-2));
+        plot(y);
+    end
+    
 elseif flag == 6
     
     A = data{3};
     plot(XX,A);
     FEA = extractFeatures(A,0,0,0);
     display(FEA);
-        
+    
 end
 
 title(filename);

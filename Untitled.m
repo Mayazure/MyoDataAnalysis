@@ -52,5 +52,6 @@ end
 %myoPlot('parsed_emg-20170725155545.csv',1);
 
 %myoPlot('Motorway-full.csv',4,true);
-myoPlot('test_baseline.csv',4,false);
+%myoPlot('test_baseline.csv',4,false);
+myoPlot('H:\Myo\Data\Processing\n_3.csv',5,false);
 %myoPlot('event2.txt',4,false);
