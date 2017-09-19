@@ -1,0 +1,22 @@
+function[]=myoPlot(filename,flag,flag2)
+fid = fopen(filename);
+data = textscan(fid, '%u64 %s %f %f %f %f %f %f %f %f','Delimiter',',');
+
+len = length(data{1});
+limdown=data{1}(1);
+limup=data{1}(len);
+
+limdown
+limup
+
+XX = zeros(len,1);
+for i=1:len
+    XX(i)=i;
+end
+
+%XX = data{1};
+
+
+
+
+end
