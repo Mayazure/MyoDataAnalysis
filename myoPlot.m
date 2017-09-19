@@ -12,7 +12,7 @@ len
 
 XX = zeros(len,1);
 for i=1:len
-    XX(i)=i*5;
+    XX(i)=i;
 end
 
 %XX = data{1};
@@ -49,7 +49,7 @@ elseif flag==3
     end
 elseif flag ==4
     A = data{3};
-    A
+    
         %A = zscore(A);
         subplot(311);
         plot(XX,A);
@@ -91,10 +91,12 @@ elseif flag == 5
         A = (A-repmat(Amin,len,1))./repmat(Amax-Amin,len,1);
         %plot(XX,A);
         y = fft(A,1028);
-        subplot(221);
+        y = abs(y);
+        display(y);
+        subplot(211);
         plot(XX,A);
         subplot(212);
-        plot(XX,abs(y));
+        plot(y);
         
 elseif flag == 6
     
