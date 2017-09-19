@@ -23,15 +23,17 @@ outfile = fopen(strcat(outPath, 'all.csv'), 'a');
 for i=1:count
     fid = fopen(strcat(path,filename(i).name));
     data = textscan(fid, '%u64 %s %f %f %f %f %f %f %f %f','Delimiter',',');
+    feaAVG = zeros(1,10);
     for j=3:10
         %[normalizedData,PS] = mapminmax(data{j});
         A = data{j};
         len = length(A);
-        Amin = min(A); Amax = max(A); Amean = mean(A);
-        A = (A-repmat(Amean,len,1))./repmat(Amax-Amin,len,1);
+        %Amin = min(A); Amax = max(A); Amean = mean(A);
+        %A = (A-repmat(Amean,len,1))./repmat(Amax-Amin,len,1);
         
-        display(A);
-        fea = getFeatures(A,0.3,0,0);
+        %display(A);
+        fea = getFeatures(A,0.1,0,0);
+        feaAVG = feaAVG + fea;
         %display(fea);
         %display(PS);
         len = length(fea);
@@ -47,6 +49,10 @@ for i=1:count
             %}
         end
         fprintf(outfiles(j-2), '%d\n', flag);
+    end
+    feaAVG = feaAVG./8;
+    for p=1:8
+        fprintf(outfile,'%f,',feaAVG(p));
     end
     fprintf(outfile, '%d\n', flag);
     fclose(fid);

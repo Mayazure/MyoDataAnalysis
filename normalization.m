@@ -1,4 +1,4 @@
-path = 'H:\Myo\Data\Processing\';
+path = 'C:\Users\Mayazure\Desktop\Processing\';
 
 filename = dir(strcat(path,'*.csv'));
 count = length(filename);

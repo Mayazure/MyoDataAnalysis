@@ -1,8 +1,8 @@
 function[features] = getFeatures(data,tZC,tSSC,tWA)
     len = length(data);
     
-    datamin = min(data); datamax = max(data); datamean = mean(data);
-    data = (data-repmat(datamean,len,1))./repmat(datamax-datamin,len,1);
+    %datamin = min(data); datamax = max(data); datamean = mean(data);
+    %data = (data-repmat(datamean,len,1))./repmat(datamax-datamin,len,1);
     
     %data = mapminmax(data);
     
