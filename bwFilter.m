@@ -3,7 +3,7 @@ function [filteredWave] = bwFilter(originalWave)
 Fs = 200;
 
 figure(1);
-Wc=2*50/Fs;                                          %½ØÖ¹ÆµÂÊ 50Hz
+Wc=4*45/Fs;                                          %½ØÖ¹ÆµÂÊ 50Hz
 [b,a]=butter(4,Wc);
 filteredWave=filter(b,a,originalWave);
 
