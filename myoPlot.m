@@ -87,26 +87,31 @@ elseif flag == 5
     
     for i=3:10
         
-        A = data{i};
+        AM = data{i};
         %A = zscore(A);
         
         %Amin = min(A); Amax = max(A);
         %A = (A-repmat(Amin,len,1))./repmat(Amax-Amin,len,1);
         
-        AM = A-mean(A)*zeros(length(A),1);
+        %AM = A-mean(A)*zeros(length(A),1);
         
         subplot(8,2,2*(i-2)-1);
         plot(XX,AM);
+        set(gca,'YLim',[-1 1]);
         %plot(XX,A);
         y = fft(AM,length(AM));
         y = abs(y);
         
+        %{
         for j=1:20
             y(j)=0;
         end
+        %}
+        
         %display(y);
         
         subplot(8,2,2*(i-2));
+        %stem(y);
         plot(y);
     end
     
