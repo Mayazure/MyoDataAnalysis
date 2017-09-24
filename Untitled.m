@@ -53,6 +53,6 @@ end
 
 %myoPlot('Motorway-full.csv',4,true);
 %myoPlot('test_baseline.csv',4,false);
-%myoPlot('H:\Myo\Data\Processing\n_3.csv',5,false);
+myoPlot('C:\Users\Mayazure\Desktop\Processing\test\Parsed\baseline3.csv',5,false);
 
 %myoPlot('event2.txt',4,false);

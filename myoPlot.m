@@ -18,7 +18,7 @@ end
 %XX = data{1};
 
 figure
-set(gca,'XLim',[limdown,limup]);
+%set(gca,'XLim',[limdown,limup]);
 %set(gca,'xtick',limdown:5000:limup);
 
 
@@ -84,37 +84,67 @@ elseif flag ==4
         line([5941334,5941939],[0.85,0.85],'color',[1 0 0]);
     end
 elseif flag == 5
-    
+    figure
     for i=3:10
         
-        AM = data{i};
-        %A = zscore(A);
-        
-        %Amin = min(A); Amax = max(A);
-        %A = (A-repmat(Amin,len,1))./repmat(Amax-Amin,len,1);
-        
-        %AM = A-mean(A)*zeros(length(A),1);
+        AM = data{i}(1:2410);
         
         subplot(8,2,2*(i-2)-1);
-        plot(XX,AM);
+        plot(XX(1:2410),AM);
         set(gca,'YLim',[-1 1]);
-        %plot(XX,A);
-        y = fft(AM,length(AM));
-        y = abs(y);
         
-        %{
-        for j=1:20
-            y(j)=0;
-        end
-        %}
-        
-        %display(y);
+        [f,P1]=doFFT(AM,200);
         
         subplot(8,2,2*(i-2));
-        %stem(y);
-        plot(y);
+        plot(f,P1);
     end
     
+    figure
+    for i=3:10
+        
+        AM = data{i}(1:2410);
+        
+        subplot(8,2,2*(i-2)-1);
+        AM = bandPassFilter(AM,200,30,1);
+        plot(XX(1:2410),AM);
+        set(gca,'YLim',[-1 1]);
+        
+        [f,P1]=doFFT(AM,200);
+        
+        subplot(8,2,2*(i-2));
+        plot(f,P1);
+    end
+    
+    figure
+    for i=3:10
+        
+        AM = data{i}(2411:len);
+        
+        subplot(8,2,2*(i-2)-1);
+        plot(XX(1:length(AM)),AM);
+        set(gca,'YLim',[-1 1]);
+
+        [f,P1] = doFFT(AM,200);
+        subplot(8,2,2*(i-2));
+        %stem(y);
+        plot(f,P1);
+    end
+    
+    figure
+    for i=3:10
+        
+        AM = data{i}(2411:len);
+        
+        subplot(8,2,2*(i-2)-1);
+        AM = bandPassFilter(AM,200,30,1);
+        plot(XX(1:length(AM)),AM);
+        %set(gca,'YLim',[-1 1]);
+
+        [f,P1] = doFFT(AM,200);
+        subplot(8,2,2*(i-2));
+        %stem(y);
+        plot(f,P1);
+    end
 elseif flag == 6
     
     A = data{3};
