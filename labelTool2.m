@@ -1,7 +1,7 @@
 function[] = labelTool2(dirPath,expNo)
 
 emgFilePath = strcat(dirPath,num2str(expNo),'.csv');
-rangeFilePath = strcat(dirPath,'InfoData\',num2str(expNo),'.csv');
+rangeFilePath = strcat(dirPath,'modified_removed\',num2str(expNo),'.csv');
 
 emgFile = fopen(emgFilePath);
 rangeFile = fopen(strcat(rangeFilePath));
