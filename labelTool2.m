@@ -18,9 +18,9 @@ end
 label = rangeData{1};
 rangeLen = length(label);
 
-for j=41:41
+for j=1:rangeLen
     index = label(j);
-    starti = index - 2000 + 1;
+    starti = index - 3000 + 1;
     endi = index + 1000;
     
     figure

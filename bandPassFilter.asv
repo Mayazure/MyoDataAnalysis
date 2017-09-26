@@ -1,6 +1,0 @@
-function[y] = bandPassFilter(A,low,high)
-Wn = [low,high];
-low*
-[b,a]=butter(2,low,'high');
-y = filter(b,a,A);
-end

@@ -1,9 +1,0 @@
-function[] = doFFT(AM)
-
-
-y = fft(AM,length(AM));
-y = abs(y);
-
-max = max()
-plot(y);
-end
