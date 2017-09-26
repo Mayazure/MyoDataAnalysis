@@ -12,7 +12,7 @@ fid = fopen(strcat(path,filename(1).name));
 
 count = length(filename);
 outfiles = zeros(1,8);
-outPath = 'features_new\';
+outPath = 'features_final\';
 
 for i=1:8
     outfiles(i) = fopen(strcat(outPath, num2str(i), '.csv'), 'a');
