@@ -38,6 +38,7 @@ if flag==1
         A = mapminmax(A);
         
         plot(XX,A);
+        set(gca,'YLim',[-128 128]);
     end
 elseif flag==2
     %        plot(data{1},data{2},data{1},data{3},data{1},data{4},data{1},data{5},data{1},data{6},data{1},data{7},data{1},data{8},data{1},data{9});
