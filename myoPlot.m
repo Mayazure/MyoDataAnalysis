@@ -35,10 +35,11 @@ if flag==1
         %Amin = min(A); Amax = max(A);
         %A = (A-repmat(Amin,len,1))./repmat(Amax-Amin,len,1);
         
-        A = mapminmax(A);
+        %A = mapminmax(A);
+        A = bandPassFilter(A,200,50,200);
         
         plot(XX,A);
-        set(gca,'YLim',[-128 128]);
+        set(gca,'YLim',[-150 150]);
     end
 elseif flag==2
     %        plot(data{1},data{2},data{1},data{3},data{1},data{4},data{1},data{5},data{1},data{6},data{1},data{7},data{1},data{8},data{1},data{9});
